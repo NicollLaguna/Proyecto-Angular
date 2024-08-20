@@ -1,0 +1,57 @@
+<div class="container">
+    <h1>Hola este mi primer proyecto</h1>
+<h2>{{ welcome }}</h2>
+<ol>
+    <li *ngFor="let task of tasks()">
+        {{task}}
+    </li>
+</ol>
+<hr>
+<h2> {{' * * * * *'.repeat(5)}} </h2>
+<p> la suma de 3 + 3 es {{ 3 + 3 }}</p>
+<p>Hola soy {{name()}} y tengo {{age}}</p>
+
+<hr>
+<img [src]="person().avatar" alt="">
+<input type="text" [value]="person().age">
+<button [disabled]="disabled">Click me</button>
+<p>person: {{person().name}}</p>
+
+<hr>
+<button (click)="clickHandler()">Click me</button>
+<br>
+<button (dblclick)="clickHandler()">Doble Click me</button>
+<br>
+<p>(change)</p>
+<input type="number" [value]="person().age" (change)="changeHandler($event)">
+<br>
+<p>(change)</p>
+<input type="text" [value]="person().name" (change)="changeHandler($event)">
+<p>(keydown)</p>
+<input type="text" [value]="person().name" (keydown)="keydownHandler($event)">
+<br>
+<p>(keydown)</p>
+<input type="text" [value]="person().name" (keydown.r)="clickHandler()">
+<hr>
+<h1>Signals</h1>
+<input type="text" [value]="name()" (change)="changeHandler($event)">
+<p>name: {{name()}}</p>
+<p>name: {{name()}}</p>
+<ul>
+    <p>total: {{tasks().length }}</p>
+    <li *ngFor="let task of tasks(); index as i">
+       {{i}} {{task}}
+    </li>
+</ul>
+<hr>
+<input type="number" [value]="person().age" (change)="changeAge($event)">
+
+<div *ngIf="person().name === 'Nicoll' && person().age > 18; else elseBlock">
+    Sou sou grande
+</div>
+
+<ng-template #elseBlock>
+    Soy Nicoll menor de 18
+</ng-template>
+
+</div>
